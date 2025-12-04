@@ -7,24 +7,26 @@
 
 .footer-content {
 	max-width: 1200px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 2.5rem;
 
 	@media (min-width: 700px) {
-		grid-template-columns: 2fr 1fr 1fr 1.5fr;
+		display: grid;
+		margin: 0 auto;
+		grid-template-columns: 2fr 1fr 1fr 2fr;
 	}
 }
 
-.footer-brand .footer-logo {
-	font-size: 2.5rem;
+.footer-logo {
+	/* 	font-size: 2.5rem;
 	font-weight: 700;
 	letter-spacing: 2px;
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.8rem; */
+	max-width: 150px;
+	align-self: center;
 }
-
-.footer-brand .footer-tagline {
+.footer-tagline {
 	font-size: 0.95rem;
 	line-height: 1.5;
 	opacity: 0.9;

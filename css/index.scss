@@ -42,14 +42,14 @@
 
 .category {
 	@include flex-center;
-	gap: 14px;
-	padding: 1.2rem;
+	gap: 10px;
+	padding: 0.8rem 0.5rem;
 	border-radius: $border-radius-general;
 	background-color: $dark-color;
 	color: white;
 	font-weight: 600;
 	text-transform: uppercase;
-	letter-spacing: 1.2px;
+	letter-spacing: 1.1px;
 
 	img {
 		width: 40px;
@@ -184,10 +184,6 @@
 		font-size: 1.05rem;
 		letter-spacing: 0.5px;
 		text-transform: lowercase;
-
-		&::first-letter {
-			text-transform: uppercase;
-		}
 	}
 
 	.topic-plus {
