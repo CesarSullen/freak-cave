@@ -547,10 +547,25 @@ section {
   text-decoration: underline;
 }
 
+.about-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding-bottom: 2rem;
+}
 @media screen and (min-width: 700px) {
   .about-grid {
-    padding-left: 1.5rem;
+    grid-template-columns: 1fr 2fr 1fr !important;
+    align-items: center !important;
   }
+}
+
+.col-1,
+.col-2,
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .card {
@@ -565,8 +580,8 @@ section {
 
 .card-title {
   color: #4169e1;
-  font-family: "Barlow";
-  text-transform: uppercase;
+  font-family: "Alice";
+  text-transform: capitalize;
   font-weight: 600;
   margin-bottom: 1rem;
   font-size: 1.4rem;
@@ -578,37 +593,13 @@ section {
   color: #e5dede;
 }
 
-.about-left-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-@media screen and (min-width: 700px) {
-  .about-left-col {
-    padding: 0;
-  }
-}
-
-.about-top-row,
-.about-bottom-row {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 700px) {
-  .about-top-row,
-  .about-bottom-row {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-
 .logo-card {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 200px;
 }
 .logo-card img {
-  filter: invert(34%) sepia(87%) saturate(2978%) hue-rotate(209deg) brightness(92%) contrast(88%);
   width: 100%;
 }
 
@@ -622,35 +613,43 @@ section {
   align-items: center;
   gap: 20px;
 }
+.mission-card .mission-list li:hover .mission-icon {
+  transform: rotate(15deg);
+}
 .mission-card .mission-list li .mission-icon {
-  max-width: 50px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 .mission-card .mission-list li p {
   font-size: 0.85rem;
   color: rgba(229, 222, 222, 0.7);
 }
 
-.faq-card .faq-grid {
+.faq-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.8rem;
 }
 @media (min-width: 700px) {
-  .faq-card .faq-grid {
+  .faq-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
-.faq-card .faq-grid .faq-item {
+.faq-grid .faq-item {
   background-color: rgba(255, 255, 255, 0.03);
   padding: 1rem;
   border-radius: 10px;
 }
-.faq-card .faq-grid .faq-item h3 {
+.faq-grid .faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.faq-grid .faq-item h3 {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-.faq-card .faq-grid .faq-item p {
+.faq-grid .faq-item p {
   font-size: 0.8rem;
   color: rgba(229, 222, 222, 0.6);
 }
@@ -659,15 +658,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-@media screen and (min-width: 700px) {
-  .about-sidebar {
-    padding: 0 1.5rem 0 0;
-  }
-}
-
-.contact-form-card {
-  width: 100%;
 }
 
 .mini-form {
@@ -689,13 +679,6 @@ section {
   border-color: #4169e1;
 }
 
-.join-us {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .join-us-card {
   position: relative;
   height: 140px;
@@ -704,7 +687,8 @@ section {
   cursor: pointer;
   background-image: url(https://picsum.photos/200/300);
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .join-us-card::after {
   content: "";
@@ -715,7 +699,6 @@ section {
 .join-us-card .join-us-card-content {
   position: relative;
   height: 100%;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -723,20 +706,21 @@ section {
 }
 .join-us-card .join-us-card-content h3 {
   font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .join-us-card .join-us-card-content .arrow-icon {
   content: url(../assets/icons/wind.svg);
   position: absolute;
-  right: 1.5rem;
+  right: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5rem;
+  width: 24px;
 }
-.join-us-card:hover .bg-img {
-  transform: scale(1.05);
+.join-us-card:hover {
+  background-size: 110%;
 }
 .join-us-card:hover .arrow-icon {
-  transform: translate(5px, -50%);
+  transform: translate(20px, -50%);
 }
 
 /* ===================== SEARCH ===================== */

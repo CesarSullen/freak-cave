@@ -1,7 +1,21 @@
 .about-grid {
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: 1fr;
+	padding-bottom: 2rem;
+
 	@media screen and (min-width: 700px) {
-		padding-left: 1.5rem;
+		grid-template-columns: 1fr 2fr 1fr !important;
+		align-items: center !important;
 	}
+}
+
+.col-1,
+.col-2,
+.col-3 {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 .card {
@@ -16,8 +30,8 @@
 
 .card-title {
 	color: $primary-color;
-	font-family: "Barlow";
-	text-transform: uppercase;
+	font-family: "Alice";
+	text-transform: capitalize;
 	font-weight: 600;
 	margin-bottom: 1rem;
 	font-size: 1.4rem;
@@ -29,33 +43,11 @@
 	color: $light-color;
 }
 
-.about-left-col {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-
-	@media screen and (min-width: 700px) {
-		padding: 0;
-	}
-}
-
-.about-top-row,
-.about-bottom-row {
-	display: grid;
-	gap: 1.5rem;
-	grid-template-columns: 1fr;
-
-	@media (min-width: 700px) {
-		grid-template-columns: 1fr 2fr;
-	}
-}
-
 .logo-card {
 	@include flex-center;
+	min-height: 200px;
 
 	img {
-		filter: invert(34%) sepia(87%) saturate(2978%) hue-rotate(209deg)
-			brightness(92%) contrast(88%);
 		width: 100%;
 	}
 }
@@ -71,8 +63,15 @@
 			align-items: center;
 			gap: 20px;
 
+			&:hover {
+				.mission-icon {
+					transform: rotate(15deg);
+				}
+			}
 			.mission-icon {
-				max-width: 50px;
+				width: 30px;
+				height: 30px;
+				object-fit: contain;
 			}
 
 			p {
@@ -83,30 +82,32 @@
 	}
 }
 
-.faq-card {
-	.faq-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 0.8rem;
+.faq-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.8rem;
 
-		@media (min-width: 700px) {
-			grid-template-columns: 1fr 1fr;
+	@media (min-width: 700px) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.faq-item {
+		background-color: rgba(255, 255, 255, 0.03);
+		padding: 1rem;
+		border-radius: 10px;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
 		}
 
-		.faq-item {
-			background-color: rgba(255, 255, 255, 0.03);
-			padding: 1rem;
-			border-radius: 10px;
-
-			h3 {
-				font-size: 0.9rem;
-				font-weight: 600;
-				margin-bottom: 0.5rem;
-			}
-			p {
-				font-size: 0.8rem;
-				color: rgba($light-color, 0.6);
-			}
+		h3 {
+			font-size: 0.9rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+		p {
+			font-size: 0.8rem;
+			color: rgba($light-color, 0.6);
 		}
 	}
 }
@@ -115,15 +116,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-
-	@media screen and (min-width: 700px) {
-		padding: 0 1.5rem 0 0;
-	}
 }
 
-.contact-form-card {
-	width: 100%;
-}
 .mini-form {
 	display: flex;
 	flex-direction: column;
@@ -145,13 +139,6 @@
 	}
 }
 
-.join-us {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
 .join-us-card {
 	position: relative;
 	height: 140px;
@@ -160,7 +147,8 @@
 	cursor: pointer;
 	background-image: url(https://picsum.photos/200/300);
 	background-position: center;
-	background-size: cover;
+	background-size: 100%;
+	border: $border-general;
 
 	&::after {
 		content: "";
@@ -176,7 +164,6 @@
 	.join-us-card-content {
 		position: relative;
 		height: 100%;
-		padding: $card-padding;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -184,24 +171,24 @@
 
 		h3 {
 			font-weight: 600;
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 		}
 
 		.arrow-icon {
 			content: url(../assets/icons/wind.svg);
 			position: absolute;
-			right: 1.5rem;
+			right: 0.5rem;
 			top: 50%;
 			transform: translateY(-50%);
-			font-size: 1.5rem;
+			width: 24px;
 		}
 	}
 
 	&:hover {
-		.bg-img {
-			transform: scale(1.05);
-		}
+		background-size: 110%;
+
 		.arrow-icon {
-			transform: translate(5px, -50%);
+			transform: translate(20px, -50%);
 		}
 	}
 }
